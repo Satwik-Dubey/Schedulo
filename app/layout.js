@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import { ClerkProvider } from "@clerk/nextjs";
 import CreateEventDrawer from "@/components/create-event";
+import React, { Suspense } from "react";
 
 const inter=Inter({subsets:["latin"]});
 
@@ -25,7 +26,9 @@ export default function RootLayout({ children }) {
                 <p>Made with 💗 by Satwik Dubey</p>
               </div>
           </footer>
-          <CreateEventDrawer/>
+          <Suspense fallback={<div>Loading...</div>}>
+            <CreateEventDrawer />
+          </Suspense>
         </body>
       </html>
     </ClerkProvider>
