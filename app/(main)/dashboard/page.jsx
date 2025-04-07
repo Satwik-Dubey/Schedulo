@@ -17,6 +17,16 @@ import { format } from "date-fns";
 export default function DashboardPage() {
   const { user, isLoaded } = useUser();
 
+  // Wait until the user is loaded
+  if (!isLoaded) {
+    return <p>Loading...</p>;
+  }
+
+  // Redirect or show a message if the user is not authenticated
+  if (!user) {
+    return <p>You must be signed in to access the dashboard.</p>;
+  }
+
   const {
     register,
     handleSubmit,
@@ -89,7 +99,7 @@ export default function DashboardPage() {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
               <div className="flex items-center gap-2">
-                <span>{window?.location.origin}/</span>
+                <span>{typeof window !== "undefined" && window.location.origin}/</span>
                 <Input {...register("username")} placeholder="username" />
               </div>
               {errors.username && (
