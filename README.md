@@ -24,8 +24,7 @@
 - Insights into time management and scheduling habits.
 
 ### 🔗 Integration & Sync
-- Sync with external calendar apps (Google Calendar, Outlook, etc.).
-- Import/export schedule data.
+- Sync with external calendar apps (Google Calendar).
 
 ---
 
